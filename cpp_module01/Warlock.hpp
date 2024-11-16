@@ -10,6 +10,7 @@ class	Warlock
 	private:
 		std::string	title;
 		std::string	name;
+		std::map<std::string, ASpell *>	spl;
 	public:
 		~Warlock();
 		Warlock(std::string const &name, std::string const &title);
@@ -19,8 +20,8 @@ class	Warlock
 		void	introduce() const;
 
 		void	learnSpell(ASpell *rhs);
-		void	forgetSpell(std::string name);
-		void	launchSpell(std::string name, ATarget const &rhs);
+		void	forgetSpell(std::string const& name);
+		void	launchSpell(std::string const& name, ATarget const &rhs);
 };
 
 #endif

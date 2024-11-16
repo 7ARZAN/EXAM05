@@ -34,7 +34,7 @@ void	Warlock::forgetSpell(std::string const &name){
 	spl.erase(name);
 }
 
-void	Warlock::launchSpell(std::string const &name, ATarget &rhs){
+void	Warlock::launchSpell(std::string const &name, ATarget const& rhs){
 	if (spl.find(name) != spl.end())
 		spl[name]->launch(rhs);
 }
