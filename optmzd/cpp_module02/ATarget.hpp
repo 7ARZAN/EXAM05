@@ -1,24 +1,23 @@
-#pragma once
+#ifndef ATARGET_HPP
+# define ATARGET_HPP
 
-#include <iostream>
+# include <iostream>
+# include "ASpell.hpp"
 
-#include "ASpell.hpp"
-
-class ASpell;
-
-class ATarget
+class	ASpell;
+class	ATarget
 {
 	protected:
-		std::string type;
-
+		std::string	type;
 	public:
-		ATarget();
-		virtual ~ATarget();
-		ATarget(std::string const &type);
+		std::string const&	getType() const;
 
-		std::string const &getType() const;
+		virtual	ATarget*	clone() const = 0;
 
-		virtual ATarget *clone() const = 0;
+		ATarget(std::string const& type);
+		virtual	~ATarget(){};
 
-		void getHitBySpell(ASpell const &al) const;
+		void	getHitBySpell(ASpell const& rhs) const;
 };
+
+#endif

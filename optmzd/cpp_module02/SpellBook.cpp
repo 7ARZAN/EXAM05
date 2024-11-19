@@ -1,22 +1,20 @@
 #include "SpellBook.hpp"
 
-SpellBook::SpellBook() {}
-SpellBook::~SpellBook() {}
+SpellBook::SpellBook(){}
 
-void SpellBook::learnSpell(ASpell* al)
-{
-	if (al)
-		spl[al->getName()] = al;
+SpellBook::~SpellBook(){}
+
+void	SpellBook::learnSpell(ASpell* rhs){
+	if (rhs)
+		sp[rhs->getName()] = rhs;
 }
 
-void SpellBook::forgetSpell(std::string const &s)
-{
-	spl.erase(s);
+void	SpellBook::forgetSpell(std::string const& name){
+	sp.erase(name);
 }
 
-ASpell* SpellBook::createSpell(std::string const &s)
-{
-	if (spl.find(s) == spl.end())
+ASpell*	SpellBook::createSpell(std::string const& name){
+	if (sp.find(name) == sp.end())
 		return NULL;
-	return spl[s]->clone();
+	return (sp[name]->clone());
 }

@@ -1,32 +1,30 @@
-#pragma once
+#ifndef WARLOCK_HPP
+# define WARLOCK_HPP
 
-#include <iostream>
-#include <map>
+# include <map>
+# include <iostream>
+# include "ASpell.hpp"
+# include "SpellBook.hpp"
 
-#include "ASpell.hpp"
-#include "SpellBook.hpp"
-
-class Warlock
+class	Warlock
 {
 	private:
-		std::string name;
-		std::string title;
-		SpellBook spl;
-
-		Warlock();
-		Warlock(Warlock const &other);
-		Warlock &operator=(Warlock const &other);
+		SpellBook	spl;
+		std::string	name;
+		std::string	title;
 	public:
 		~Warlock();
-		Warlock(std::string const &name, std::string const &title);
-		std::string const &getName() const;
-		std::string const &getTitle() const;
+		Warlock(std::string const& name, std::string const& title);
 
-		void setTitle(std::string const &title);
-		void introduce() const;
+		std::string const&	getName() const;
+		std::string const&	getTitle() const;
 
-		void learnSpell(ASpell *al);
-		void forgetSpell(std::string name);
-		void launchSpell(std::string name, ATarget const &al);
+		void	setTitle(std::string const& title);
+		void	introduce() const;
 
+		void	learnSpell(ASpell* sp);
+		void	forgetSpell(std::string const& name);
+		void	launchSpell(std::string const& name, ATarget const& atr);
 };
+
+#endif

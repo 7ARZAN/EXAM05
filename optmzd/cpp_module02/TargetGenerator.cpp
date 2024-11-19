@@ -1,22 +1,16 @@
 #include "TargetGenerator.hpp"
 
-TargetGenerator::TargetGenerator() {}
-TargetGenerator::~TargetGenerator() {}
-
-void TargetGenerator::learnTargetType(ATarget* al)
-{
-	if (al)
-		spl[al->getType()] = al;
+void	TargetGenerator::learnTargetType(ATarget* rhs){
+	if (rhs)
+		atr[rhs->getType()] = rhs;
 }
 
-void TargetGenerator::forgetTargetType(std::string const &s)
-{
-	spl.erase(s);
+void	TargetGenerator::forgetTargetType(std::string const& type){
+	atr.erase(type);
 }
 
-ATarget* TargetGenerator::createTarget(std::string const &s)
-{
-	if (spl.find(s) == spl.end())
+ATarget*	TargetGenerator::createTarget(std::string const& type){
+	if (atr.find(type) == atr.end())
 		return NULL;
-	return spl[s]->clone();
+	return (atr[type]->clone());
 }
